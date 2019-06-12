@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Collaborator" xmlns:tns="http://www.example.org/Collaborator" elementFormDefault="qualified">
+
+    <element name="collaboratorRequest"
+    	type="tns:collaboratorRequest">
+    </element>
+    
+    <complexType name="collaboratorRequest">
+    	<sequence>
+    		<element name="action" type="int"></element>
+    		<element name="id" type="int" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="collaboratorResponse"
+    	type="tns:collaboratorResponse">
+    </element>
+    
+    <complexType name="collaboratorResponse">
+    	<sequence>
+    		<element name="CollaboratorDetails"
+    			type="tns:CollaboratorDetails" minOccurs="0" maxOccurs="unbounded">
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="CollaboratorDetails">
+    	<sequence>
+    		<element name="id" type="int"></element>
+    		<element name="name" type="string"></element>
+    		<element name="alias" type="string"></element>
+    		<element name="password" type="string"></element>
+    		<element name="dni" type="string"></element>
+    		<element name="email" type="string"></element>
+    		<element name="imageCollaborator" type="base64Binary"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="collaboratorFault" type="tns:collaboratorFault"></element>
+    
+    <complexType name="collaboratorFault">
+    	<sequence>
+    		<element name="errorCode" type="integer" minOccurs="0"></element>
+    		<element name="errorMessage" type="string" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+</schema>
